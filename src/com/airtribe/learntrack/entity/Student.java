@@ -40,6 +40,6 @@ public class Student extends Person{
     @Override
     public String toString() {
         return "Student{id=" + getId() + ", name=" + getDisplayName()
-                + ", email=" + getEmail() + ", active=" + active + "}";
+                + ", email=" + getEmail() + ", active=" + active + "Batch=" + getBatch() + "}";
     }
 }

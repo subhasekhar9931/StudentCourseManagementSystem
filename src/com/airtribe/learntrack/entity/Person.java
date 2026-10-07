@@ -7,7 +7,7 @@ public class Person {
     private String lastName;
     private String email;
 
-    Person(int id,
+    public Person(int id,
             String firstName,
             String lastName,
             String email

@@ -1,5 +1,7 @@
 package com.airtribe.learntrack.entity;
 
+import com.airtribe.learntrack.exception.InvalidInputException;
+
 import java.time.LocalDate;
 
 public class Enrollment {
@@ -21,12 +23,40 @@ public class Enrollment {
         this.status = ACTIVE;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }
+
+    public void setEnrollmentDate(LocalDate enrollmentDate) {
+        this.enrollmentDate = enrollmentDate;
+    }
+
     public int getId() { return id; }
     public int getStudentId() { return studentId; }
     public int getCourseId() { return courseId; }
     public LocalDate getEnrollmentDate() { return enrollmentDate; }
     public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public void setStatus(String status) {
+        if (!isValidStatus(status)) {
+            throw new InvalidInputException(
+                    "Invalid status: " + status + ". Allowed: ACTIVE, COMPLETED, CANCELLED.");
+        }
+        this.status = status;
+    }
+
+    public static boolean isValidStatus(String status) {
+        return ACTIVE.equals(status)
+                || COMPLETED.equals(status)
+                || CANCELLED.equals(status);
+    }
 
     @Override
     public String toString() {

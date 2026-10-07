@@ -24,7 +24,7 @@ Both commands work, so the JDK (not just the JRE) is installed and on the PATH.
 
 ## Hello World
 
-I created `HelloWorld.java`, compiled it with `javac HelloWorld.java`
+If created `HelloWorld.java`, compiled it with `javac HelloWorld.java`
 (this produces `HelloWorld.class`, which is bytecode) and ran it with
 `java HelloWorld`. It printed:
 
